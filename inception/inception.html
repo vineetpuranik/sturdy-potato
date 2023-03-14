@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Beautiful HTML Page</title>
+    <style>
+      /* Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #F8F8F8;
+      }
+
+      /* Header Styles */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: #FFFFFF;
+        box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: bold;
+        color: #0057FF;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .nav {
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav a {
+        color: #333333;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      .nav a:hover {
+        background-color: #E5E5E5;
+      }
+
+      /* Main Styles */
+      main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 50px;
+      }
+
+      h1 {
+        font-size: 48px;
+        color: #333333;
+        font-weight: bold;
+        margin-bottom: 30px;
+      }
+
+      p {
+        font-size: 24px;
+        color: #555555;
+        line-height: 1.5;
+        margin-bottom: 30px;
+      }
+
+      .btn {
+        background-color: #0057FF;
+        color: #FFFFFF;
+        border: none;
+        padding: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #007AFF;
+      }
+
+      /* Footer Styles */
+      footer {
+        background-color: #333333;
+        color: #FFFFFF;
+        padding: 20px;
+        text-align: center;
+      }
+
+      footer p {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      footer a {
+        color: #FFFFFF;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">My Rust Web Server</div>
+      <nav class="nav">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+  
+    <main>
+      <h1>Welcome to my single threaded web server.</h1>
+      <p>This webserver is hosted on port 7878.</p>
+      <p>The webserver only accepts a GET request.The webserver returns the HTML content as a response to the GET request.</p></p>
+      <p>This webserver is built using Rust std crate.<p>
+
+      <button class="btn">Learn More</button>
+    </main>
+  
+    <footer>
+      <p>&copy; 2023 Keep learning Rust</p>
+      <a href="#">Privacy Policy</a>
+    </footer>
+  </body>
+</html>
