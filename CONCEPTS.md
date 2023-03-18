@@ -21,5 +21,6 @@ So, if declare a string "Four" it will be stored as 46 6f 75 72 where each byte 
 1 byte can represent 00 to FF in hex
 
 ## Rust crates
+Crate is a collection of Rust source files.
 Rust crates can be either binary crates or library crates. Library crates are intended to be used in other programs and are not exceutable on their own. 
 
