@@ -9,7 +9,9 @@
 In Rust, variables are immutable by default. 
 Based on this concept, when you state that a value won’t change, it really won’t change, so you don’t have to keep track of it yourself. Your code is thus easier to reason through.he Rust compiler makes sure that when a value when you state that a value won’t change, it really won’t change, so you don’t have to keep track of it yourself. Your code is thus easier to reason through.
 
-`let myvar = 10; // The variable myvar is immutable and cannot be assigned a new val`
+```
+let myvar = 10; // The variable myvar is immutable and cannot be assigned a new val
+```
 
 In order to define variables whose value can be changed later on we use the mut keyword
 
@@ -40,6 +42,7 @@ fn main() {
 }
 ```
 To get individual values out of a tuple we can use pattern matching to destructure a tuple value
+```
 fn main() {
     let tup: (i32, f64, u38) = (500, 6.4, 1);   
     let (x, y, z) = tup;
@@ -47,6 +50,7 @@ fn main() {
 }
 ```
 We can also access the tuple element directly by using a . and the index of the value we want to access
+```
 fn main() {
     let tup: (i32, f64, u38) = (500, 6.4, 1);   
     let five_hundred = tup.0;
@@ -54,6 +58,7 @@ fn main() {
     
 }
 ```
+
 ## Rust Arrays
 If we want to represent a collection of values of the same type then we can use an Array. 
 
@@ -62,3 +67,30 @@ Arrays are useful when you want your data to be allocated on the stack rather th
 A vector is a similar collection type provided by the standard library that is allowed to grow or shrink in size. If you are unsure whether to use array or vector , chances are you should use a vector. 
 
 Arrays are more useful when you know the number of elements will not change.
+
+### Rust if else
+Simple example of if else in Rust
+```
+fn main() {
+    let number = 2;
+    if number < 2 {
+        println!("I dont get it");
+    }
+    else {
+        println!("I get it");
+    }
+}
+
+```
+The condition in the if and else if statements should always be a boolean condition. 
+Using too many else if statements can clutter your code. Consider using match for such cases.
+
+`if` is an expression and we can use it at the right side of a `let` statement to assign the outcome to a variable
+
+```
+fn main() {
+    let condition = true;
+    let x = if condition { 5 } else { 6 };
+}
+
+```
