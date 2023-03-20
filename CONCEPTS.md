@@ -7,12 +7,15 @@
 
 ## Rust variables
 In Rust, variables are immutable by default. 
-let myvar = 10; // The variable myvar is immutable and cannot be assigned a new val
+Based on this concept, when you state that a value won’t change, it really won’t change, so you don’t have to keep track of it yourself. Your code is thus easier to reason through.he Rust compiler makes sure that when a value when you state that a value won’t change, it really won’t change, so you don’t have to keep track of it yourself. Your code is thus easier to reason through.
+
+`let myvar = 10; // The variable myvar is immutable and cannot be assigned a new val`
 
 In order to define variables whose value can be changed later on we use the mut keyword
-let mut myvar = 10;
 
-Similar to variables , references in Rust also need to be associated with the mut keyword in order to change the underlying value associated with the reference.
+`let mut myvar = 10;`
+
+Similar to variables ,references in Rust also need to be associated with the mut keyword in order to change the underlying value associated with the reference.
 
 ## Rust Strings
 Rust String types are stored with UTF-8 encoding under the hood. In UTF-8 each character can be represented between 1 to 4 bytes. 
@@ -24,3 +27,38 @@ So, if declare a string "Four" it will be stored as 46 6f 75 72 where each byte 
 Crate is a collection of Rust source files.
 Rust crates can be either binary crates or library crates. Library crates are intended to be used in other programs and are not exceutable on their own. 
 
+# Rust Scalar Types and Compond types
+Scalar variable type is associated with a single value. Rust has 4 primary scalar types : integers, floating-point numbers, booleans and characters.
+
+Compound types can group multiple values into one type. Rust has 2 primitive compound types : tupples and arrays.
+
+# Rust tuples
+A tuple is a general way of grouping together a number of values of variety of types into one compound type. 
+```
+fn main() {
+    let tup: (i32, f64, u38) = (500, 6.4, 1);   
+}
+```
+To get individual values out of a tuple we can use pattern matching to destructure a tuple value
+fn main() {
+    let tup: (i32, f64, u38) = (500, 6.4, 1);   
+    let (x, y, z) = tup;
+    println!("The value of y is {y}");
+}
+```
+We can also access the tuple element directly by using a . and the index of the value we want to access
+fn main() {
+    let tup: (i32, f64, u38) = (500, 6.4, 1);   
+    let five_hundred = tup.0;
+    let six_point_found = tup.1;    
+    
+}
+```
+## Rust Arrays
+If we want to represent a collection of values of the same type then we can use an Array. 
+
+Arrays are useful when you want your data to be allocated on the stack rather than the heap or when you want to ensure that you always have a fixed number of elements. 
+
+A vector is a similar collection type provided by the standard library that is allowed to grow or shrink in size. If you are unsure whether to use array or vector , chances are you should use a vector. 
+
+Arrays are more useful when you know the number of elements will not change.
