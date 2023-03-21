@@ -29,12 +29,12 @@ So, if declare a string "Four" it will be stored as 46 6f 75 72 where each byte 
 Crate is a collection of Rust source files.
 Rust crates can be either binary crates or library crates. Library crates are intended to be used in other programs and are not exceutable on their own. 
 
-# Rust Scalar Types and Compond types
+## Rust Scalar Types and Compond types
 Scalar variable type is associated with a single value. Rust has 4 primary scalar types : integers, floating-point numbers, booleans and characters.
 
 Compound types can group multiple values into one type. Rust has 2 primitive compound types : tupples and arrays.
 
-# Rust tuples
+## Rust tuples
 A tuple is a general way of grouping together a number of values of variety of types into one compound type. 
 ```
 fn main() {
@@ -68,7 +68,7 @@ A vector is a similar collection type provided by the standard library that is a
 
 Arrays are more useful when you know the number of elements will not change.
 
-### Rust if else
+## Rust if else
 Simple example of if else in Rust
 ```
 fn main() {
@@ -92,5 +92,66 @@ fn main() {
     let condition = true;
     let x = if condition { 5 } else { 6 };
 }
+
+```
+
+## Rust loop
+The `loop` keyword tells Rust to execute a block of code over and over again or until you explicitly tell it to stop. `break` can be used to exit the loop and `continue` can be used to continue the loop execution by skipping the statements in the current iteration and beginning from the start of the loop. 
+
+```
+fn main() {
+    loop {
+        println!("print till stopped !!");
+    }
+}
+
+```
+
+Returning values from Loops
+```
+fn main() {
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!("The result is {result}");
+}
+
+```
+If you have loops within loops, `break` and `continue` apply to the innermost loop at that point. You can optionally specify a loop label on a loop and use with `break` or `continue` to specify that those keywords apply to the labeled loop instead of the innermost loop. Loop labels must begin with a single quote. 
+
+```
+fn main() {
+    let mut count = 0;
+    'counting_up: loop {
+        println!("count = {count}");
+        let mut remaining = 10;
+        
+         loop {
+            println("remaining = {remaining}");
+            if remaining == 9 {
+                break;
+            }
+            
+            if count == 2 {
+                break 'counting_up;
+            }
+            remaining = -1;        
+         
+         }
+    
+        count += 1;
+    
+    }
+
+
+}
+
 
 ```
