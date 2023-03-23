@@ -176,4 +176,10 @@ More often, you’ll create a Vec<T> with initial values and Rust will infer the
 ```
    let v = v![1, 2, 3];
 ```
+Updating a vector
+```
+let mut v = vector![1, 2, 3, 4, 5];
+v.push(6);
+v.push(7);    
     
+```    
