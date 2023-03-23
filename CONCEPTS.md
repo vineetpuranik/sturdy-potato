@@ -155,3 +155,25 @@ fn main() {
 
 
 ```
+
+## Rust Vectors
+
+Vectors allow us to store more than one value of the same type in a single data structure so that all the values are put next to each other in the memory.
+
+Creating mutable vectors allows you to add elements to the vector after is has been defined (reason why you would use vectors over arrays).
+
+Create an empty vector to hold values of type i32. 
+Note that we added a type annotation here. Because we aren’t inserting any values into this vector, Rust doesn’t know what kind of elements we intend to store.
+Vec<T> type provided by the standard library can hold any type.
+Vec<T> in v will hold elements of the i32 type.
+
+```
+let v: Vec<i32> = Vec::new();
+```
+
+More often, you’ll create a Vec<T> with initial values and Rust will infer the type of value you want to store, so you rarely need to do this type annotation. Rust conveniently provides the vec! macro, which will create a new vector that holds the values you give it.    
+
+```
+   let v = v![1, 2, 3];
+```
+    
