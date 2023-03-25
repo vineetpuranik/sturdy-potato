@@ -1,29 +1,92 @@
 //Longest increasing subsequence
-//Input to the method which will calculate the longest increasing subsequence will be an array of numbers
-//Since the numbers can be negative or positive in the array we can use the signed integer type
-
 fn main() {
-    //input array of numbers
-    let inp = [5, 7, 4, -3, 9, 1, 10, 4, 5, 8, 9, 3];
+    //create a vector for input sequence
+    let nums: Vec<i32> = vec![5, 7, 4, -3, 9, 1, 10, 4, 5, 8, 9, 3];
+
+    //empty vector
+    //let nums: Vec<i32> = vec![];
+
+    //vector with 1 element
+    //let nums: Vec<i32> = vec![5];
 
     //print the length of the longest increasing subsequence from the numbers
-    println!("{}" , len_lis(inp));
+    println!("{}", length_of_lis(nums));
 }
 
 //function that calculates the length of the longest increasing subsequnce
-//TODO : the function should be able to accept an array numbers of variable size
-//this means we will have to rewrite this function using a vector
+fn length_of_lis(nums: Vec<i32>) -> i32 {
+    let mut result;
 
-fn len_lis(inp:[i32; 12]) -> u32 {
-    let inp_first_element = inp[0];
-    println!("First number in the input array is {inp_first_element}");
-    123
+    //if there are no elements in the input sequence
+    if nums.len() == 0 {
+        result = 0;
+    }
+    //if there is only 1 element in the input sequence
+    else if nums.len() == 1 {
+        result = 1;
+    }
+    //there are more than 1 elements in the input sequence
+    else {
+        //create a vector that will maintain the length of LIS for each index in the sequence
+        //initially all the entries in this vector will be 1
+        //this corresponds to the fact that intially at each index, the length of the longest increasing subsequnce will atleast be 1
+        let mut l = vec![1; nums.len()];
+
+        //iterate through all the elements in the input sequence
+        let mut i = 0;
+
+        loop {
+            let current_element = nums[i];
+            if i > 0 {
+                let mut j = 0;
+
+                loop {
+                    //check if element at jth index is less than element at ith index
+                    //and lis at index i is less than 1 + lis at index j
+                    let current_element_j = nums[j];
+                    if current_element > current_element_j {
+                        let new_lis = 1 + l[j];
+                        if new_lis > l[i] {
+                            l[i] = new_lis;
+                        }
+                    }
+                    j += 1;
+                    //break out of inner loop when we have reached the element at index i
+                    if j == i {
+                        break;
+                    }
+                }
+            }
+
+            //println!("Index {}, Element {}, LIS {}", i, nums[i], l[i]);
+            i += 1;
+            //break out of loop when we have reached the last element in the input sequence
+            if i == nums.len() {
+                break;
+            }
+        }
+
+        let mut counter = 1;
+        result = 1;
+
+        loop {
+            let current_lis = l[counter];
+
+            if current_lis > result {
+                result = current_lis;
+            }
+
+            counter += 1;
+
+            if counter >= nums.len() {
+                break;
+            }
+        }
+    }
+    result
 }
 
-
-//Algo : 
+//Algo :
 // Sub problem in words: L(i) be the length of the longest increasing subsequence for the first i elements
 // Get the recurrence relation.
 // Key is we need to know the length of the longest increasing subsequence for every ending character
-
-
