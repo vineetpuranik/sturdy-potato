@@ -76,7 +76,46 @@ fn length_of_lis(nums: Vec<i32>) -> i32 {
     result
 }
 
-//Algo :
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    
+    #[test]
+    fn test_empty() {
+        let nums: Vec<i32> = vec![];
+        assert_eq!(0, length_of_lis(nums));
+    }
+
+    //[10,9,2,5,3,7,101,18]
+    //[0,1,0,3,2,3]
+    //[7,7,7,7,7,7]
+    #[test]
+    fn test_sequences() {
+        let nums: Vec<i32> = vec![10,9,2,5,3,7,101,18];
+        assert_eq!(4, length_of_lis(nums));
+        
+        let nums: Vec<i32> = vec![0,1,0,3,2,3];
+        assert_eq!(4, length_of_lis(nums));
+
+        let nums: Vec<i32> = vec![7,7,7,7,7,7];
+        assert_eq!(1, length_of_lis(nums));
+
+
+    }
+
+    
+
+
+
+
+
+}    
+    
+
+
+
+//Al#go :
 // Sub problem in words: L(i) be the length of the longest increasing subsequence for the first i elements
 // Get the recurrence relation.
 // Key is we need to know the length of the longest increasing subsequence for every ending character
