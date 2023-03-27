@@ -3,12 +3,6 @@ fn main() {
     //create a vector for input sequence
     let nums: Vec<i32> = vec![5, 7, 4, -3, 9, 1, 10, 4, 5, 8, 9, 3];
 
-    //empty vector
-    //let nums: Vec<i32> = vec![];
-
-    //vector with 1 element
-    //let nums: Vec<i32> = vec![5];
-
     //print the length of the longest increasing subsequence from the numbers
     println!("{}", length_of_lis(nums));
 }
@@ -18,14 +12,10 @@ fn length_of_lis(nums: Vec<i32>) -> i32 {
     let mut result;
 
     //if there are no elements in the input sequence
-    if nums.len() == 0 {
+    if nums.is_empty() {
         result = 0;
     }
-    //if there is only 1 element in the input sequence
-    else if nums.len() == 1 {
-        result = 1;
-    }
-    //there are more than 1 elements in the input sequence
+    //there is 1 or  more than 1 elements in the input sequence
     else {
         //create a vector that will maintain the length of LIS for each index in the sequence
         //initially all the entries in this vector will be 1
@@ -66,19 +56,19 @@ fn length_of_lis(nums: Vec<i32>) -> i32 {
             }
         }
 
-        let mut counter = 1;
+        i = 0;
         result = 1;
 
         loop {
-            let current_lis = l[counter];
+            let current_lis = l[i];
 
             if current_lis > result {
                 result = current_lis;
             }
 
-            counter += 1;
+            i += 1;
 
-            if counter >= nums.len() {
+            if i >= nums.len() {
                 break;
             }
         }
